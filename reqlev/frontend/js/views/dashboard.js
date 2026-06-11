@@ -25,14 +25,14 @@ const dashboardView = {
             <div id="dash-stats" class="stats-bar"></div>
             <div id="dash-search" class="mb-3">
               <div class="search-wrap" style="max-width:320px">
-                <span class="search-icon">🔍</span>
+                <span class="search-icon"><i class="ph-bold ph-magnifying-glass"></i></span>
                 <input id="project-search" type="text" class="form-input"
                        placeholder="Buscar projeto…" />
               </div>
             </div>
             <div id="projects-container">
               <div class="empty-state">
-                <span class="empty-state-icon">⏳</span>
+                <span class="empty-state-icon"><i class="ph-bold ph-hourglass-medium"></i></span>
                 <h3>Carregando projetos…</h3>
               </div>
             </div>
@@ -51,13 +51,13 @@ const dashboardView = {
     return `
       <aside class="sidebar">
         <div class="sidebar-logo">
-          <a href="#/dashboard">ReqLev<span class="logo-dot"></span></a>
+          <a href="#/dashboard"><img src="./assets/Logo.png" alt="ReqLev Logo" class="sidebar-logo-img" /></a>
         </div>
         <div class="sidebar-section">
           <div class="sidebar-section-label">Menu</div>
           <button class="btn btn-ghost w-full" style="justify-content:flex-start;gap:10px"
                   onclick="router.go('/dashboard')">
-            📁 Projetos
+            <i class="ph-bold ph-folder"></i> Projetos
           </button>
         </div>
         <div class="sidebar-footer">
@@ -93,8 +93,9 @@ const dashboardView = {
     } catch (err) {
       document.getElementById('projects-container').innerHTML = `
         <div class="empty-state">
-          <span class="empty-state-icon">⚠️</span>
+          <span class="empty-state-icon"><i class="ph-bold ph-warning"></i></span>
           <h3>Erro ao carregar projetos</h3>
+        </div>
           <p>${escHtml(err.message)}</p>
         </div>
       `;
@@ -131,7 +132,7 @@ const dashboardView = {
     if (!projects.length) {
       container.innerHTML = `
         <div class="empty-state">
-          <span class="empty-state-icon">📂</span>
+         <span class="empty-state-icon"><i class="ph-bold ph-folder-open"></i></span>
           <h3>Nenhum projeto ainda</h3>
           <p>Clique em <strong>+ Novo Projeto</strong> para criar o primeiro.</p>
         </div>

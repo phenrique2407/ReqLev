@@ -7,7 +7,7 @@ const loginView = {
     mount(`
       <div class="auth-root">
         <div class="auth-brand">
-          <div class="auth-brand-logo">ReqLev</div>
+          <img src="./assets/Logo.png" alt="ReqLev Logo" class="auth-brand-logo-img" />
           <p class="auth-brand-tag">
             Gerencie projetos e requisitos com colaboração
             em tempo real e rastreamento completo de atividades.

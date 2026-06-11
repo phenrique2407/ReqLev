@@ -49,10 +49,10 @@
   --status-done-text:   #22c55e;
 
   /* RF / RNF */
-  --rf-bg:   rgba(249,115,22,.18);
-  --rf-text: #f97316;
-  --rnf-bg:  rgba(59,130,246,.18);
-  --rnf-text:#60a5fa;
+  --rf-bg:   rgba(34,197,94,.18);
+  --rf-text: #22c55e;
+  --rnf-bg:  rgba(239,68,68,.14);
+  --rnf-text:#ef4444;
 
   /* Motion */
   --ease:     cubic-bezier(.23,1,.32,1);
@@ -74,7 +74,7 @@ html { font-size: 15px; scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Roboto', system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   min-height: 100svh;
@@ -82,7 +82,7 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -.02em;
@@ -91,7 +91,7 @@ h1,h2,h3,h4,h5,h6 {
 a { color: var(--orange); text-decoration: none; }
 a:hover { color: var(--orange-hover); }
 
-button { cursor: pointer; font-family: inherit; }
+button { cursor: pointer; font-family: 'Inter', sans-serif; }
 
 input, textarea, select {
   font-family: inherit;
@@ -1043,3 +1043,34 @@ select.form-input {
 .sse-dot.connected  { background: var(--success); box-shadow: 0 0 6px var(--success); }
 .sse-dot.connecting { background: var(--warning); animation: blink 1s infinite; }
 .sse-dot.error      { background: var(--error); }
+
+
+
+
+
+/* ── Estilos da Nova Logo ───────────────────────────────────────────────── */
+.auth-brand-logo-img,
+.sidebar-logo-img,
+.init-logo-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.auth-brand-logo-img { width: 180px; margin-bottom: 16px; }
+.sidebar-logo-img { width: 140px; margin: 0 auto; }
+.init-logo-img { width: 120px; animation: pulse 2s infinite ease-in-out; }
+
+/* ── Responsividade para telas < 433px ──────────────────────────────────── */
+@media (max-width: 433px) {
+  .app-shell { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 12px; }
+  .auth-root { grid-template-columns: 1fr; }
+  .auth-brand { padding: 32px 16px; }
+  .auth-panel { padding: 16px; }
+  .stats-bar { flex-direction: column; gap: 8px; }
+  .project-layout { flex-direction: column; }
+  .topbar { flex-direction: column; align-items: flex-start; height: auto; padding: 12px; gap: 12px; }
+  .inline-edit-actions { flex-direction: column; }
+  .inline-edit-actions .btn { width: 100%; }
+}

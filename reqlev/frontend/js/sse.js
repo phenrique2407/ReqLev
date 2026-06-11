@@ -46,7 +46,7 @@ const sseClient = (() => {
     dot.className = `sse-dot ${state}`;
     const label = dot.nextElementSibling;
     if (label) {
-      const labels = { connected: 'ao vivo', connecting: 'conectando…', error: 'desconectado' };
+      const labels = { connected: 'Conectado', connecting: 'Conectando…', error: 'Desconectado' };
       label.textContent = labels[state] || state;
     }
   }

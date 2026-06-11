@@ -40,7 +40,7 @@ const projectView = {
             <div>
               <div class="breadcrumb">
                 <a href="#/dashboard">Projetos</a>
-                <span class="breadcrumb-sep">›</span>
+                <span class="breadcrumb-sep"><i class="ph-bold ph-caret-right"></i></span>
                 <span id="bc-name">Carregando…</span>
               </div>
               <div class="topbar-title" id="topbar-title">…</div>
@@ -53,7 +53,7 @@ const projectView = {
             </div>
           </header>
           <div class="page-content" id="page-content">
-            <div class="empty-state"><span class="empty-state-icon">⏳</span><h3>Carregando…</h3></div>
+            <div class="empty-state"><span class="empty-state-icon"><i class="ph-bold ph-hourglass-medium"></i></span><h3>Carregando…</h3></div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ const projectView = {
     } catch (err) {
       document.getElementById('page-content').innerHTML = `
         <div class="empty-state">
-          <span class="empty-state-icon">⚠️</span>
+          <span class="empty-state-icon"><i class="ph-bold ph-warning"></i></span>
           <h3>Erro ao carregar projeto</h3>
           <p>${escHtml(err.message)}</p>
           <a href="#/dashboard" class="btn btn-secondary mt-3">← Voltar</a>
@@ -111,10 +111,10 @@ const projectView = {
         <span>conectando…</span>
       </div>
       <button class="btn btn-secondary btn-sm" id="btn-export-pdf" title="Exportar PDF">
-        ⬇ PDF
+        <i class="ph-bold ph-file-pdf"></i> PDF
       </button>
-      ${canEdit ? `<button class="btn btn-secondary btn-sm" id="btn-edit-proj">✏️ Editar</button>` : ''}
-      ${perm === 'owner' ? `<button class="btn btn-danger btn-sm" id="btn-del-proj">🗑 Deletar</button>` : ''}
+      ${canEdit ? `<button class="btn btn-secondary btn-sm" id="btn-edit-proj"><i class="ph-bold ph-pencil-simple"></i> Editar</button>` : ''}
+      ${perm === 'owner' ? `<button class="btn btn-danger btn-sm" id="btn-del-proj"><i class="ph-bold ph-trash"></i> Deletar</button>` : ''}
     `;
 
     document.getElementById('btn-export-pdf')?.addEventListener('click', () => this._exportPdf());
@@ -222,7 +222,7 @@ const projectView = {
     }
     if (!reqs.length) {
       return `<div class="empty-state" style="padding:32px 0">
-        <span class="empty-state-icon">📋</span>
+        <span class="empty-state-icon"><i class="ph-bold ph-clipboard-text"></i></span>
         <h3>Nenhum requisito${this._filter !== 'all' ? ' neste filtro' : ''}</h3>
         ${this._filter === 'all' && (this._project?.user_permission !== 'view')
           ? '<p>Clique em <strong>+ Adicionar</strong> para criar o primeiro.</p>' : ''}
@@ -243,8 +243,8 @@ const projectView = {
           <div class="req-card-name">${escHtml(r.name)}</div>
           ${canEdit ? `
             <div class="req-card-actions">
-              <button class="btn btn-ghost btn-icon btn-sm btn-edit-req" data-id="${r.id}" title="Editar">✏️</button>
-              <button class="btn btn-ghost btn-icon btn-sm btn-del-req" data-id="${r.id}" title="Deletar">🗑</button>
+              <button class="btn btn-ghost btn-icon btn-sm btn-edit-req" data-id="${r.id}" title="Editar"><i class="ph-bold ph-pencil-simple"></i></button>
+              <button class="btn btn-ghost btn-icon btn-sm btn-del-req" data-id="${r.id}" title="Deletar"><i class="ph-bold ph-trash"></i></button>
             </div>` : ''}
         </div>
         <div class="req-badges">
@@ -610,10 +610,10 @@ const projectView = {
           ${isOwner ? `
             <button class="btn btn-ghost btn-icon btn-sm btn-change-perm"
                     data-uid="${perm.user_id}" data-perm="${perm.permission}"
-                    title="Alterar permissão">⚙️</button>
+                    title="Alterar permissão"><i class="ph-bold ph-gear"></i></button>
             <button class="btn btn-ghost btn-icon btn-sm btn-revoke"
                     data-uid="${perm.user_id}" data-uname="${escHtml(perm.user?.username)}"
-                    title="Revogar acesso">✕</button>
+                    title="Revogar acesso"><i class="ph-bold ph-x"></i></button>
           ` : ''}
         </div>
       </div>`).join('');
@@ -683,7 +683,7 @@ const projectView = {
       `<div class="form-group">
         <label class="form-label">Buscar usuário</label>
         <div class="search-wrap">
-          <span class="search-icon">🔍</span>
+          <span class="search-icon"><i class="ph-bold ph-magnifying-glass"></i></span>
           <input id="share-search" type="text" class="form-input"
                  placeholder="Email ou username…" autocomplete="off" />
         </div>
